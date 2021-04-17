@@ -1,1 +1,0 @@
-# Given-an-array-of-pairs-find-all-symmetric-pairs-in-it

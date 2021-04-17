@@ -1,0 +1,63 @@
+// Given-an-array-of-pairs-find-all-symmetric-pairs-in-it
+//using brute force approach time complexity O(n^2)
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int row;
+    cin>>row;
+    int arr1[row], arr2[row];
+    for(int i=0; i<row; i++)
+    {
+           cin>>arr1[i];
+    }
+    for(int i=0; i<row; i++)
+    {
+        cin>>arr2[i];
+    }
+    for(int i=0; i<row; i++)
+    {
+        for(int j=0; j<row; j++)
+        {
+            if((arr1[i] == arr2[j]) && (arr1[j] == arr2[i]))
+            {
+                cout<<arr1[i]<<" "<<arr1[j]<<endl;
+                 continue;
+            }
+        }
+    }
+    return 0;
+}
+//using hashing time complxity O(n) it's efficient solution 
+#include <bits/stdc++.h>
+using namespace std;
+int find_symmetric(int arr[][2], int n)
+{
+    map<int, int>mp;
+    for(int i=0; i<n; i++)
+    {
+        int first = arr[i][0];
+        int second = arr[i][1];
+        if((mp.find(second) != mp.end()) && (mp[second] == first))
+        {
+            cout<<second<<" "<<first<<endl;
+        }
+        else
+        mp[first] = second;
+    }
+}
+int main ()
+{
+    int n;
+    cin>>n;
+    int arr[n][2];
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<2; j++)
+        {
+            cin>>arr[i][j];
+        }
+    }
+    find_symmetric(arr, n);
+    return 0;
+}
